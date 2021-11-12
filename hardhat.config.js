@@ -1,6 +1,7 @@
 require("@nomiclabs/hardhat-waffle");
 const fs = require("fs");
 const privateKey = fs.readFileSync(".secret").toString();
+const polygonInfuraApiKey = fs.readFileSync(".polygon_mumbai").toString();
 
 module.exports = {
   networks: {
@@ -8,11 +9,11 @@ module.exports = {
       chainId: 1337
     },
     mumbai: {
-      url: `https://polygon-mumbai.g.alchemy.com/v2/${process.env.POLYGON_MUMBAI_ALCHEMY_API_KEY}`,
+      url: polygonInfuraApiKey,
       accounts: [privateKey]
     },
     mainnet: {
-      url: `https://polygon-mainnet.g.alchemy.com/v2/${process.env.POLYGON_MAINNET_ALCHEMY_API_KEY}`,
+      url: ``,
       accounts: [privateKey]
     }
   },
